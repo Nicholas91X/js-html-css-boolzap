@@ -164,12 +164,14 @@ p {
 
 #message-area>div {
     width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    flex-direction: column
 }
 
-#message-area>div::after {
-    content: "";
-    display: table;
-    clear: both;
+#message-area>div .received {
+    align-self: flex-start;
 }
 
 #text-area {
@@ -212,12 +214,10 @@ p {
     font-size: 5px;
 }
 
-.received {
-    float: right;
+.sent {
     background-color: rgba(213,249,186,255);
 }
 
-.sent {
-    float: left;
+.received {
     background-color: white;
 }

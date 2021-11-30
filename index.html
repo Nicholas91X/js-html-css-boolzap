@@ -54,7 +54,7 @@
 
                     <!-- Chat -->
                     <div id="chat">
-                        <div v-for="(contact, index) in contacts" class="contatto">
+                        <div v-for="(contact, index) in contacts" class="contatto"@click="showTab(contact.messages,index)">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                             <h5>{{contact.name}}</h5>
                         </div>
@@ -84,9 +84,9 @@
                     <div id="chat-utente">
 
                         <div id="chat-dati-utente">
-                            <img src="img/avatar_1.jpg" alt="Utente">
+                            <img :src="'img/avatar' + contacts[currentActive].avatar + '.jpg'" :alt="contacts[currentActive].name">
                             <div class="dati-accesso">
-                                <h5>Nome Utente</h5>
+                                <h5>{{contacts[currentActive].name}}</h5>
                                 <p>Ultimo accesso oggi alle:</p>
                             </div>
                         </div>
@@ -102,8 +102,8 @@
                     <!-- Spazio Messaggi -->
                     <div id="message-area">
                         <div>
-                            <div class="messaggio received">
-                                Hai portato a spasso il cane?
+                            <div v-for="message in contacts[currentActive].messages" class="messaggio" :class="message.status">
+                                {{message.message}}
                                 <span class="data-ora">
                                     10/01/2020 15:30:55
                                 </span>
@@ -134,7 +134,7 @@
                     <!-- Area input del testo -->
                     <div id="text-area">
                         <i class="far fa-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="startInput" @keyup.enter="pushMessage()">
                         <i class="fas fa-microphone"></i>
                     </div>
                     <!-- / Area input del testo -->
