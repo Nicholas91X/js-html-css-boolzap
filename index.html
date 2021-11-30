@@ -23,7 +23,7 @@
                     <div id="utente">
 
                         <div id="dati-utente">
-                            <img src="img/avatar_1.jpg" alt="Utente">
+                            <img src="img/avatar_8.jpg" alt="Utente">
                             <h5>Nome Utente</h5>
                         </div>
 
@@ -54,12 +54,12 @@
 
                     <!-- Chat -->
                     <div id="chat">
-                        <div class="contatto">
-                            <img src="img/avatar_2.jpg" alt="Contatto 2">
-                            <h5>Fabio</h5>
+                        <div v-for="(contact, index) in contacts" class="contatto">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                            <h5>{{contact.name}}</h5>
                         </div>
 
-                        <div class="contatto">
+                        <!-- <div class="contatto">
                             <img src="img/avatar_3.jpg" alt="Contatto 3">
                             <h5>Michele</h5>
                         </div>
@@ -72,7 +72,7 @@
                         <div class="contatto">
                             <img src="img/avatar_5.jpg" alt="Contatto 5">
                             <h5>Luisa</h5>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- / Chat -->
                 </div>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         
-                        <div>
+                        <!-- <div>
                             <div class="messaggio received">
                                 Ricordati di dargli da mangiare
                                 <span class="data-ora">
@@ -126,7 +126,7 @@
                                     10/01/2020 16:15:22
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
                         
                     </div>
                     <!-- / Spazio Chat Messaggi -->
