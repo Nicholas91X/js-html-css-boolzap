@@ -11,6 +11,81 @@
     <title>Boolzapp</title>
 </head>
 <body>
+    <!-- Apertura di Vue -->
+    <div id="root">
+        <div class="container">
+            <!-- Creazione window dell'app web -->
+            <div id="window">
+
+                <!-- Colonna di sinistra -->
+                <div id="col-sx">
+                    <!-- Spazio Utente -->
+                    <div id="utente">
+
+                        <div id="dati-utente">
+                            <img src="img/avatar_1.jpg" alt="Utente">
+                            <h5>Nome Utente</h5>
+                        </div>
+
+                        <div class="icone">
+                            <i class="fas fa-sync-alt"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <!-- / Spazio Utente -->
+
+                    <!-- Pannello notifiche -->
+                    <div id="pannello-notifiche">
+                        <i class="fas fa-bell-slash"></i>
+                        <div id="ricevi-notifiche">
+                            <h5>Ricevi notifiche di nuovi messaggi</h5>
+                            <p><a href="#">Attiva notifiche desktop</a></p>
+                        </div>
+                    </div>
+                    <!-- / Pannello notifiche -->
+
+                    <!-- Spazio Ricerca -->
+                    <div id="ricerca">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                    <!-- / Spazio Ricerca -->
+
+                    <!-- Chat -->
+                    <div id="chat">
+                        <div class="contatto">
+                            <img src="img/avatar_2.jpg" alt="Contatto 2">
+                            <h5>Fabio</h5>
+                        </div>
+
+                        <div class="contatto">
+                            <img src="img/avatar_3.jpg" alt="Contatto 3">
+                            <h5>Michele</h5>
+                        </div>
+                           
+                        <div class="contatto">
+                            <img src="img/avatar_4.jpg" alt="Contatto 4">
+                            <h5>Samuele</h5>
+                        </div>
+
+                        <div class="contatto">
+                            <img src="img/avatar_5.jpg" alt="Contatto 5">
+                            <h5>Luisa</h5>
+                        </div>
+                    </div>
+                    <!-- / Chat -->
+                </div>
+                <!-- / Colonna di sinistra -->
+
+                <!-- Colonna di destra -->
+                <div id="col-dx"></div>
+                <!-- / Colonna di destra -->
+            </div>
+            <!-- / fine window app web -->
+        </div>
+    </div>
+    <!-- / Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="main.js"></script>
 </body>

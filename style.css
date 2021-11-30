@@ -3,3 +3,139 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+p {
+    font-size: 12px;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0,150,136);
+    background: linear-gradient(180deg, rgba(0,150,136,1) 20%, rgba(220,219,209,1) 20%, rgba(238,238,238,1) 50%, rgba(210,219,219,1) 100%);
+    overflow: hidden;
+}
+
+#window {
+    width: 80vw;
+    height: 95vh;
+    margin: 2.5vh auto;
+    background-color: white;
+    display: flex;
+}
+
+#col-sx {
+    width: 35%;
+    height: 100%;
+}
+
+#col-dx {
+    width: 65%;
+    height: 100%;
+    background-color: yellow;
+}
+
+#utente {
+    width: 100%;
+    height: 10%;
+    background-color: rgba(234,234,234,255);
+    display: flex;
+    justify-content: space-between;
+}
+
+#dati-utente,
+.contatto {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#dati-utente img,
+.contatto img {
+    width: 15%;
+    border-radius: 50%;
+    margin: 0 5px 0 10px;
+}
+
+.icone {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.icone i {
+    color: rgba(177,177,177,255);
+    margin: 0 10px;
+}
+
+#pannello-notifiche {
+    width: 100%;
+    height: 12%;
+    background-color: rgba(142,218,252,255);
+    display: flex;
+    align-items: center;
+}
+
+#pannello-notifiche i {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: white;
+    color: rgba(142,218,252,255);
+    margin: 0 5px 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ricerca {
+    width: 100%;
+    height: 8%;
+    background-color: rgba(240,240,240,250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ricerca i {
+    width: 20%;
+    height: 80%;
+    border-right: 2px solid rgba(240,240,240,250);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: rgba(177,177,177,255);
+}
+
+#ricerca input {
+    width: 75%;
+    height: 80%;
+    background-color: white;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+}
+
+#chat {
+    width: 100%;
+    height: 70%;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+.contatto {
+    width: 100%;
+    height: 15%;
+}
+
+.contatto:not(:last-child) {
+    border-bottom: 1px solid rgba(233,235,235,255);
+}
+
+.contatto:hover {
+    background-color: rgba(233,235,235,255);
+}
