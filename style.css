@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-size: 12px;
 }
 
 p {
@@ -32,10 +33,10 @@ p {
 #col-dx {
     width: 65%;
     height: 100%;
-    background-color: yellow;
 }
 
-#utente {
+#utente,
+#chat-utente {
     width: 100%;
     height: 10%;
     background-color: rgba(234,234,234,255);
@@ -43,18 +44,29 @@ p {
     justify-content: space-between;
 }
 
+#utente {
+    border-right: 1px solid lightgray;
+}
+
 #dati-utente,
-.contatto {
+.contatto,
+#chat-dati-utente {
     display: flex;
     justify-content: start;
     align-items: center;
 }
 
 #dati-utente img,
-.contatto img {
-    width: 15%;
+.contatto img,
+#chat-dati-utente img {
+    height: 80%;
     border-radius: 50%;
     margin: 0 5px 0 10px;
+}
+
+.dati-accesso {
+    display: flex;
+    flex-direction: column;
 }
 
 .icone {
@@ -92,6 +104,7 @@ p {
     width: 100%;
     height: 8%;
     background-color: rgba(240,240,240,250);
+    border-bottom: 1px solid rgba(233,235,235,255);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,4 +151,73 @@ p {
 
 .contatto:hover {
     background-color: rgba(233,235,235,255);
+}
+
+#message-area {
+    width: 100%;
+    height: 80%;
+    background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
+    border-top: 1px solid lightgray;
+    padding: 50px 50px 0;
+}
+
+#message-area>div {
+    width: 100%;
+}
+
+#message-area>div::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#text-area {
+    width: 100%;
+    height: 10%;
+    background-color: rgba(243,238,234,255);
+    border-left: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#text-area input {
+    width: 70%;
+    height: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#text-area i {
+    color: rgba(153,158,158,255);
+    font-size: 20px;
+}
+
+.messaggio {
+    min-width: 40%;
+    max-width: 70%;
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.data-ora {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    font-size: 6px;
+}
+
+.received {
+    float: right;
+    background-color: rgba(213,249,186,255);
+}
+
+.sent {
+    float: left;
+    background-color: white;
 }
