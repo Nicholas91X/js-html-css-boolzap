@@ -83,27 +83,55 @@ const app = new Vue ({
             },
         ],
         currentActive: 0,
-        startInput: ""
+        startInput: "",
+        search: "",
+        filtro: []
     },
     methods: {
         showTab: function(message,index) {
             this.currentActive = index;
             message = message[this.currentActive];
+            const active = document.getElementsByClassName("contatto");
+            for (let i = 0; i < active.length; i++) {
+                active[i].classList.remove("active");
+            }
+            active[index].classList.add("active");
         },
         pushMessage: function() {
-            this.contacts[this.currentActive].messages.push({
-                date: '10/01/2020 15:50:00',
-                message: this.startInput,
-                status: 'sent' 
-            })
-            this.startInput = "";
-            setTimeout( () => {
+            if (this.startInput != "") {
                 this.contacts[this.currentActive].messages.push({
                     date: '10/01/2020 15:50:00',
-                    message: "ok",
-                    status: 'received' 
+                    message: this.startInput,
+                    status: 'sent' 
                 })
-            },1000)
+                this.startInput = "";
+                setTimeout( () => {
+                    this.contacts[this.currentActive].messages.push({
+                        date: '10/01/2020 15:50:00',
+                        message: "ok",
+                        status: 'received' 
+                    })
+                },1000)
+            }
+        },
+        searchContact: function(contact) {
+            if (this.search != "") {
+                let listaNomi = [];
+            this.filtro = [];
+            for (let i = 0; i < contact.length; i++) {
+                listaNomi.push(contact[i].name);
+                // console.log(listaNomi[i])
+                const listaNomiUp = listaNomi[i].toUpperCase();
+                const ricerca = listaNomiUp.search(this.search.toUpperCase());
+                // console.log(ricerca);
+                if(ricerca >= 0) {
+                    this.filtro.push(contact[i]);
+                }
+            }
+            // console.log(this.filtro)
+            } else {
+                this.filtro = [];
+            }
         }
     }
 })

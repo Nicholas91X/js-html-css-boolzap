@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -24,7 +28,7 @@
 
                         <div id="dati-utente">
                             <img src="img/avatar_8.jpg" alt="Utente">
-                            <h5>Nome Utente</h5>
+                            <h5>Nicholas</h5>
                         </div>
 
                         <div class="icone">
@@ -48,16 +52,25 @@
                     <!-- Spazio Ricerca -->
                     <div id="ricerca">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup.enter="searchContact(contacts)">
                     </div>
                     <!-- / Spazio Ricerca -->
 
                     <!-- Chat -->
                     <div id="chat">
-                        <div v-for="(contact, index) in contacts" class="contatto"@click="showTab(contact.messages,index)">
-                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
-                            <h5>{{contact.name}}</h5>
-                        </div>
+                        <span v-if="filtro.length > 0">
+                            <div v-for="(contact, index) in filtro" class="contatto" @click="showTab(contact.messages,index)">
+                                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                <h5>{{contact.name}}</h5>
+                            </div>
+                        </span>
+                        
+                        <span v-else>
+                            <div v-for="(contact, index) in contacts" class="contatto" @click="showTab(contact.messages,index)">
+                                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                <h5>{{contact.name}}</h5>
+                            </div>
+                        </span>
 
                         <!-- <div class="contatto">
                             <img src="img/avatar_3.jpg" alt="Contatto 3">
