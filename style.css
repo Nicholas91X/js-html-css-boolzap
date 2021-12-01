@@ -166,7 +166,7 @@ p {
     padding: 50px 50px 0;
 }
 
-#message-area>div {
+#message-area>div>span {
     width: 100%;
     display: flex;
     align-items: flex-end;
@@ -174,7 +174,7 @@ p {
     flex-direction: column
 }
 
-#message-area>div .received {
+#message-area>div>span .received {
     align-self: flex-start;
 }
 

@@ -95,8 +95,15 @@
                 <div id="col-dx">
                     <!-- Spazio Chat Utente -->
                     <div id="chat-utente">
+                        <div v-if="filtro.length > 0" id="chat-dati-utente">
+                            <img :src="'img/avatar' + filtro[currentActive].avatar + '.jpg'" :alt="filtro[currentActive].name">
+                            <div class="dati-accesso">
+                                <h5>{{filtro[currentActive].name}}</h5>
+                                <p>Ultimo accesso oggi alle:</p>
+                            </div>
+                        </div>
 
-                        <div id="chat-dati-utente">
+                        <div v-else id="chat-dati-utente">
                             <img :src="'img/avatar' + contacts[currentActive].avatar + '.jpg'" :alt="contacts[currentActive].name">
                             <div class="dati-accesso">
                                 <h5>{{contacts[currentActive].name}}</h5>
@@ -115,12 +122,22 @@
                     <!-- Spazio Messaggi -->
                     <div id="message-area">
                         <div>
-                            <div v-for="message in contacts[currentActive].messages" class="messaggio" :class="message.status">
-                                {{message.message}}
-                                <span class="data-ora">
-                                    10/01/2020 15:30:55
-                                </span>
-                            </div>
+                            <span v-if="filtro.length > 0">
+                                <div v-for="message in filtro[currentActive].messages" class="messaggio" :class="message.status">
+                                    {{message.message}}
+                                    <span class="data-ora">
+                                        10/01/2020 15:30:55
+                                    </span>
+                                </div>
+                            </span>
+                            <span v-else>
+                                <div v-for="message in contacts[currentActive].messages" class="messaggio" :class="message.status">
+                                    {{message.message}}
+                                    <span class="data-ora">
+                                        10/01/2020 15:30:55
+                                    </span>
+                                </div>
+                            </span>
                         </div>
                         
                         <!-- <div>
