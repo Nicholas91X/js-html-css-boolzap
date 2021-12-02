@@ -58,11 +58,14 @@
 
                     <!-- Chat -->
                     <div id="chat">
-                        
-                            <div v-for="(contact, index) in contacts" class="contatto" @click="showTab(contact.messages,index)" 
-                            :class="{'hide' : !contact.visible, 'active' : index == currentActive}">
-                                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
-                                <h5>{{contact.name}}</h5>
+                        <div class="contatto">
+                            <i class="fas fa-archive"></i>
+                            Archiviate
+                        </div>
+                        <div v-for="(contact, index) in contacts" class="contatto" @click="showTab(contact.messages,index)" 
+                        :class="{'hide' : !contact.visible, 'active' : index == currentActive}">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                            <h5>{{contact.name}}</h5>
                             </div>
                     </div>
                     <!-- / Chat -->

@@ -92,10 +92,12 @@ p {
     align-items: center;
 }
 
-#pannello-notifiche i {
+#pannello-notifiche i,
+#chat div:first-child i {
     width: 45px;
     height: 45px;
     border-radius: 50%;
+    font-size: 20px;
     background-color: white;
     color: rgba(142,218,252,255);
     margin: 0 5px 0 10px;
