@@ -125,7 +125,9 @@ const app = new Vue ({
                     }
                 }
             } else {
-                
+                for (let i = 0; i < contact.length; i++) {
+                    contact[i].visible = true;
+                }
             }
         }
     }
