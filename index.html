@@ -52,40 +52,18 @@
                     <!-- Spazio Ricerca -->
                     <div id="ricerca">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup.enter="searchContact(contacts)">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup.enter="searchContact(contacts,filtro)">
                     </div>
                     <!-- / Spazio Ricerca -->
 
                     <!-- Chat -->
                     <div id="chat">
-                        <span v-if="filtro.length > 0">
-                            <div v-for="(contact, index) in filtro" class="contatto" @click="showTab(contact.messages,index)">
-                                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
-                                <h5>{{contact.name}}</h5>
-                            </div>
-                        </span>
                         
-                        <span v-else>
-                            <div v-for="(contact, index) in contacts" class="contatto" @click="showTab(contact.messages,index)">
+                            <div v-for="(contact, index) in contacts" class="contatto" @click="showTab(contact.messages,index)" 
+                            :class="{'hide' : !contact.visible, 'active' : index == currentActive}">
                                 <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                                 <h5>{{contact.name}}</h5>
                             </div>
-                        </span>
-
-                        <!-- <div class="contatto">
-                            <img src="img/avatar_3.jpg" alt="Contatto 3">
-                            <h5>Michele</h5>
-                        </div>
-                           
-                        <div class="contatto">
-                            <img src="img/avatar_4.jpg" alt="Contatto 4">
-                            <h5>Samuele</h5>
-                        </div>
-
-                        <div class="contatto">
-                            <img src="img/avatar_5.jpg" alt="Contatto 5">
-                            <h5>Luisa</h5>
-                        </div> -->
                     </div>
                     <!-- / Chat -->
                 </div>
@@ -95,15 +73,8 @@
                 <div id="col-dx">
                     <!-- Spazio Chat Utente -->
                     <div id="chat-utente">
-                        <div v-if="filtro.length > 0" id="chat-dati-utente">
-                            <img :src="'img/avatar' + filtro[currentActive].avatar + '.jpg'" :alt="filtro[currentActive].name">
-                            <div class="dati-accesso">
-                                <h5>{{filtro[currentActive].name}}</h5>
-                                <p>Ultimo accesso oggi alle:</p>
-                            </div>
-                        </div>
 
-                        <div v-else id="chat-dati-utente">
+                        <div id="chat-dati-utente">
                             <img :src="'img/avatar' + contacts[currentActive].avatar + '.jpg'" :alt="contacts[currentActive].name">
                             <div class="dati-accesso">
                                 <h5>{{contacts[currentActive].name}}</h5>
@@ -121,43 +92,12 @@
 
                     <!-- Spazio Messaggi -->
                     <div id="message-area">
-                        <div>
-                            <span v-if="filtro.length > 0">
-                                <div v-for="message in filtro[currentActive].messages" class="messaggio" :class="message.status">
-                                    {{message.message}}
-                                    <span class="data-ora">
-                                        10/01/2020 15:30:55
-                                    </span>
-                                </div>
-                            </span>
-                            <span v-else>
-                                <div v-for="message in contacts[currentActive].messages" class="messaggio" :class="message.status">
-                                    {{message.message}}
-                                    <span class="data-ora">
-                                        10/01/2020 15:30:55
-                                    </span>
-                                </div>
+                        <div v-for="message in contacts[currentActive].messages" class="messaggio" :class="message.status">
+                            {{message.message}}
+                            <span class="data-ora">
+                                {{message.date}}
                             </span>
                         </div>
-                        
-                        <!-- <div>
-                            <div class="messaggio received">
-                                Ricordati di dargli da mangiare
-                                <span class="data-ora">
-                                    10/01/2020 15:31:00
-                                </span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="messaggio sent">
-                                Tutto fatto!
-                                <span class="data-ora">
-                                    10/01/2020 16:15:22
-                                </span>
-                            </div>
-                        </div> -->
-                        
                     </div>
                     <!-- / Spazio Chat Messaggi -->
 
@@ -174,6 +114,9 @@
             <!-- / fine window app web -->
         </div>
     </div>
+    <!-- Day.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/plugin/relativeTime.min.js" integrity="sha512-7YYTlJ8OTdmDMztOy8q+zfRI/+y/IWnVp1oS4kiTKa+X2P09k/ObWUemEjtMoumu8v4A0s1NZu7WjfR+UxhRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- / Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="main.js"></script>

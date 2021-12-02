@@ -91,46 +91,41 @@ const app = new Vue ({
         showTab: function(message,index) {
             this.currentActive = index;
             message = message[this.currentActive];
-            const active = document.getElementsByClassName("contatto");
-            for (let i = 0; i < active.length; i++) {
-                active[i].classList.remove("active");
-            }
-            active[index].classList.add("active");
         },
         pushMessage: function() {
             if (this.startInput != "") {
                 this.contacts[this.currentActive].messages.push({
-                    date: '10/01/2020 15:50:00',
+                    date: dayjs().format('DD-MM-YYYY, HH:mm:ss'),
                     message: this.startInput,
                     status: 'sent' 
                 })
                 this.startInput = "";
                 setTimeout( () => {
                     this.contacts[this.currentActive].messages.push({
-                        date: '10/01/2020 15:50:00',
+                        date: dayjs().format('DD-MM-YYYY, HH:mm:ss'),
                         message: "ok",
                         status: 'received' 
                     })
                 },1000)
-            }
+            }     
         },
         searchContact: function(contact) {
             if (this.search != "") {
                 let listaNomi = [];
-            this.filtro = [];
-            for (let i = 0; i < contact.length; i++) {
+                for (let i = 0; i < contact.length; i++) {
                 listaNomi.push(contact[i].name);
                 // console.log(listaNomi[i])
                 const listaNomiUp = listaNomi[i].toUpperCase();
                 const ricerca = listaNomiUp.search(this.search.toUpperCase());
                 // console.log(ricerca);
-                if(ricerca >= 0) {
-                    this.filtro.push(contact[i]);
+                    if(ricerca < 0) {
+                        
+                    contact[i].visible = false;
+                    console.log(contact[i].visible);
+                    }
                 }
-            }
-            // console.log(this.filtro)
             } else {
-                this.filtro = [];
+                
             }
         }
     }
